@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6852a3080ac43994bb9c6ebbb786a5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
   jumpSpeed: 10
   groundSensor: {fileID: 43008936}
   groundLayer:
