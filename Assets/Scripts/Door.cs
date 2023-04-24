@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
     //Action
     public void ChangeScene()
     {
-        SceneManager.LoadScene(targetScene)
+        SceneManager.LoadScene(targetScene);
     }
 
 }
