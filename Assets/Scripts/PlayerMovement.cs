@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D groundSensor = null;
     public LayerMask groundLayer = 0;
 
+    //variable to hold audio clip to play when walking
+    public AudioClip footstepSound;
+
     private void Awake()
     {
         physicsBody = GetComponent<Rigidbody2D>();
@@ -22,6 +25,19 @@ public class PlayerMovement : MonoBehaviour
         //set our new velocity to move in negative x (left) direction
         newVelocity.x = -speed;
         physicsBody.velocity = newVelocity;
+        //get audio source for footstep sounds.
+        AudioSource ourAudioSource = GetComponent<ourAudioSource>();
+
+        //ceheck if clip is already playing
+        if (ourAudioSource.clip == footstepSound && ourAudioSource.isplaying)
+        {
+            //Do nothing, audio is already playing
+        }
+        else
+        {
+            ourAudioSource.clip = footstepSound;
+            ourAudioSource.Play();
+        }
     }
 
     public void MoveRight()

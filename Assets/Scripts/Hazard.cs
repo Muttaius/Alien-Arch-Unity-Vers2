@@ -6,31 +6,23 @@ using UnityEngine;
 public class Hazard : MonoBehaviour
 {
 
-    // This will be the amount of damage this hazard does
-    // Public variable = shown in Unity editor and accessible from other scripts
-    // int = whole numbers
+    //Amount of damage this enemy does
     public int hazardDamage;
 
 
-    // Built-in Unity function for handling collisions
-    // This function will be called when another object bumps 
-    // into the one this script is attached to
+    // Collider with player character
     void OnCollisionEnter2D(Collision2D collisionData)
     {
         // Get the object we collided with
         Collider2D objectWeCollidedWith = collisionData.collider;
 
-        // Get the PlayerHealth script attached to that object (if there is one)
+        // Get the PlayerHealth script attached to that object
         PlayerHealth player = objectWeCollidedWith.GetComponent<PlayerHealth>();
 
-        // Check if we actually found a player health script
-        // This if statement is true if the player variable is NOT null (empty)
+        //Will only trigger if a player character, not damage other enemies
         if (player != null)
         {
-            // This means there WAS a PlayerHealth script attached to the object we bumped into
-            // Which means this object is indeed the player
-
-            // Perform our on-collision action (damage the player)
+            //damage to player
             player.ChangeHealth(-hazardDamage);
         }
     }
