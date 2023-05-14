@@ -573,7 +573,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  footstepsound: {fileID: 8300000, guid: f805e812f75aca641bd3823ee3338168, type: 3}
+  footstepSound: {fileID: 8300000, guid: f805e812f75aca641bd3823ee3338168, type: 3}
 --- !u!114 &283156902
 MonoBehaviour:
   m_ObjectHideFlags: 0

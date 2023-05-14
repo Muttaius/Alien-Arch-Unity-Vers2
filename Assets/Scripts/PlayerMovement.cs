@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour
         newVelocity.x = -speed;
         physicsBody.velocity = newVelocity;
         //get audio source for footstep sounds.
-        AudioSource ourAudioSource = GetComponent<ourAudioSource>();
+        AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        //ceheck if clip is already playing
-        if (ourAudioSource.clip == footstepSound && ourAudioSource.isplaying)
+        //check if clip is already playing
+        if (ourAudioSource.clip == footstepSound && ourAudioSource.isPlaying)
         {
             //Do nothing, audio is already playing
         }
@@ -46,7 +46,21 @@ public class PlayerMovement : MonoBehaviour
         //set our new velocity to move in negative x (right) direction
         newVelocity.x = +speed;
         physicsBody.velocity = newVelocity;
+        AudioSource ourAudioSource = GetComponent<AudioSource>();
+
+        //check if clip is already playing
+        if (ourAudioSource.clip == footstepSound && ourAudioSource.isPlaying)
+        {
+            //Do nothing, audio is already playing
+        }
+        else
+        {
+            ourAudioSource.clip = footstepSound;
+            ourAudioSource.Play();
+        }
+
     }
+
 
     public void Jump()
     {
